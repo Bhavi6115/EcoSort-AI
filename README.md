@@ -22,7 +22,7 @@ EcoSort AI is a software-only, AI-powered web application designed to bridge the
 
 ## 🚀 How to Run Locally
 
-1. **Clone the repository:**
+ **Clone the repository:**
    ```bash
    git clone https://github.com/YOUR_USERNAME/EcoSort-AI.git
    cd EcoSort-AI
