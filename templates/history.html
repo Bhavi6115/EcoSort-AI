@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoSort AI — History</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   <script>
+    (function () {
+      const saved = localStorage.getItem('ecosort-theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand"><span>♻️ EcoSort AI</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">Scan</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/history">History</a>
+      <a href="/guide">Guide</a>
+    </div>
+  
+  </div>
+</nav>
+
+  <div class="container">
+    <header>
+      <h1>Scan History</h1>
+      <p class="tagline">{{ history | length }} total scan(s)</p>
+    </header>
+
+    {% if history %}
+      <div class="history-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Time</th>
+              <th>Items</th>
+              <th>Materials</th>
+              <th>EcoScore</th>
+              <th>Grade</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for h in history %}
+              <tr class="clickable-row" data-href="/scan/{{ h.id }}">
+                <td>
+                  <img src="/static/output/{{ h.annotated }}" alt="scan" class="history-thumb">
+                </td>
+                <td>{{ h.timestamp.replace('T', ' ') }}</td>
+                <td>{{ h.num_items }}</td>
+                <td>
+                  {% for mat, cnt in h.materials.items() %}
+                    {{ mat }} ({{ cnt }}){% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                </td>
+                <td>{{ h.eco_score }}</td>
+                <td><span class="grade grade-{{ h.grade }}">{{ h.grade }}</span></td>
+                <td>
+                  <form action="/delete/{{ h.id }}" method="POST"
+                        onsubmit="return confirm('Delete this scan?');"
+                        class="inline-form"
+                        onclick="event.stopPropagation();">
+                    <button type="submit" class="btn-delete-sm" title="Delete">🗑️</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="empty">No scans yet. <a href="/">Upload an image →</a></p>
+    {% endif %}
+  </div>
+   <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="footer-brand">♻️ EcoSort AI</div>
+        <p class="footer-desc">Smart waste segregation &amp; disposal guidance, powered by YOLOv8.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/">Scan Waste</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/history">History</a></li>
+           <li>  <a href="/guide">Guide</a></li> 
+
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tech Stack</h5>
+        <ul>
+          <li>YOLOv8 &middot; TACO Dataset</li>
+          <li>Flask &middot; Python</li>
+          <li>Chart.js &middot; Tailwind CSS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Built as part of a college PBL project &middot; Aligned with UN SDG 11 &amp; 12</p>
+      <p class="footer-copy">&copy; 2026 EcoSort AI</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.clickable-row').forEach(row => {
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('form')) return;
+        window.location.href = row.dataset.href;
+      });
+    });
+  </script>
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

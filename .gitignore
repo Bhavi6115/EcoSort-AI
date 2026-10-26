@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+
+# Generated Images (Keep the folders, ignore the files)
+static/uploads/*
+static/output/*
+!static/uploads/.gitkeep
+!static/output/.gitkeep
+
+
+
+# OS files
+.DS_Store
+Thumbs.db

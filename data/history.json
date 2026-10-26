@@ -1,0 +1,141 @@
+[
+  {
+    "id": "a19652bec6b247a69392224bb2d91e07",
+    "timestamp": "2026-10-05T01:21:13",
+    "filename": "a19652bec6b247a69392224bb2d91e07.jpg",
+    "annotated": "a19652bec6b247a69392224bb2d91e07_annotated.jpg",
+    "num_items": 7,
+    "materials": {
+      "cardboard": 3,
+      "plastic": 3,
+      "glass": 1
+    },
+    "eco_score": 52.6,
+    "grade": "C"
+  },
+  {
+    "id": "d1c91fbc45bc44918fa40d8254c01c40",
+    "timestamp": "2026-10-05T01:27:07",
+    "filename": "d1c91fbc45bc44918fa40d8254c01c40.jpg",
+    "annotated": "d1c91fbc45bc44918fa40d8254c01c40_annotated.jpg",
+    "num_items": 4,
+    "materials": {
+      "cardboard": 3,
+      "plastic": 1
+    },
+    "eco_score": 67.1,
+    "grade": "B"
+  },
+  {
+    "id": "48a8a15d9b3f4a8aa438b673573fbb13",
+    "timestamp": "2026-10-08T02:16:02",
+    "filename": "48a8a15d9b3f4a8aa438b673573fbb13.jpg",
+    "annotated": "48a8a15d9b3f4a8aa438b673573fbb13_annotated.jpg",
+    "num_items": 4,
+    "materials": {
+      "cardboard": 3,
+      "plastic": 1
+    },
+    "eco_score": 67.1,
+    "grade": "B"
+  },
+  {
+    "id": "e0a4b1bcabe840ca977457b6818da12d",
+    "timestamp": "2026-10-09T21:48:04",
+    "filename": "e0a4b1bcabe840ca977457b6818da12d.jpg",
+    "annotated": "e0a4b1bcabe840ca977457b6818da12d_annotated.jpg",
+    "num_items": 3,
+    "materials": {
+      "plastic": 2,
+      "cardboard": 1
+    },
+    "eco_score": 43.9,
+    "grade": "C"
+  },
+  {
+    "id": "98e497d626a44377a6a75a8dbf0eb3c8",
+    "timestamp": "2026-10-09T21:57:06",
+    "filename": "98e497d626a44377a6a75a8dbf0eb3c8.jpg",
+    "annotated": "98e497d626a44377a6a75a8dbf0eb3c8_annotated.jpg",
+    "num_items": 2,
+    "materials": {
+      "metal": 1,
+      "plastic": 1
+    },
+    "eco_score": 54.2,
+    "grade": "C"
+  },
+  {
+    "id": "0308146b0fe54e6387a632101c96642f",
+    "timestamp": "2026-10-09T22:06:22",
+    "filename": "0308146b0fe54e6387a632101c96642f.jpg",
+    "annotated": "0308146b0fe54e6387a632101c96642f_annotated.jpg",
+    "num_items": 3,
+    "materials": {
+      "plastic": 1,
+      "metal": 2
+    },
+    "eco_score": 63.3,
+    "grade": "B"
+  },
+  {
+    "id": "0739eb05224445159adac7fe11cb4ecf",
+    "timestamp": "2026-10-21T20:19:11",
+    "filename": "0739eb05224445159adac7fe11cb4ecf.jpg",
+    "annotated": "0739eb05224445159adac7fe11cb4ecf_annotated.jpg",
+    "num_items": 7,
+    "materials": {
+      "plastic": 7
+    },
+    "eco_score": 44.1,
+    "grade": "C"
+  },
+  {
+    "id": "56179bf9168047799c65e9ee85f9d452",
+    "timestamp": "2026-10-26T02:02:55",
+    "filename": "56179bf9168047799c65e9ee85f9d452.jpg",
+    "annotated": "56179bf9168047799c65e9ee85f9d452_annotated.jpg",
+    "num_items": 3,
+    "materials": {
+      "plastic": 3
+    },
+    "eco_score": 54.0,
+    "grade": "C"
+  },
+  {
+    "id": "b1b9ea76f2f842d9ae48403cab4470d6",
+    "timestamp": "2026-10-26T12:42:31",
+    "filename": "b1b9ea76f2f842d9ae48403cab4470d6.jpg",
+    "annotated": "b1b9ea76f2f842d9ae48403cab4470d6_annotated.jpg",
+    "num_items": 7,
+    "materials": {
+      "plastic": 7
+    },
+    "eco_score": 44.1,
+    "grade": "C"
+  },
+  {
+    "id": "fb23032cd2604114bde9a9872971bfe2",
+    "timestamp": "2026-10-26T13:16:52",
+    "filename": "fb23032cd2604114bde9a9872971bfe2.jpg",
+    "annotated": "fb23032cd2604114bde9a9872971bfe2_annotated.jpg",
+    "num_items": 7,
+    "materials": {
+      "plastic": 7
+    },
+    "eco_score": 44.1,
+    "grade": "C"
+  },
+  {
+    "id": "02c0c7a8a92d4d75918c9e3840626373",
+    "timestamp": "2026-10-26T18:56:49",
+    "filename": "02c0c7a8a92d4d75918c9e3840626373.jpg",
+    "annotated": "02c0c7a8a92d4d75918c9e3840626373_annotated.jpg",
+    "num_items": 3,
+    "materials": {
+      "plastic": 3
+    },
+    "eco_score": 54.0,
+    "grade": "C"
+  }
+]

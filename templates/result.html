@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoSort AI — Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   <script>
+    (function () {
+      const saved = localStorage.getItem('ecosort-theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="nav-brand"><span>♻️ EcoSort AI</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">Scan</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/history">History</a>
+      <a href="/guide">Guide</a>
+    </div>
+    
+  </div>
+</nav>
+  <div class="container">
+    <header>
+      <h1>Detection Results</h1>
+      <p class="tagline">{{ num_items }} item(s) detected · Scan ID: {{ scan_id[:8] }}</p>
+    </header>
+
+    <div class="ecoscore-banner" data-score="{{ eco.score }}">
+      <div class="score-circle">
+        <span class="score-num">{{ eco.score }}</span>
+        <span class="score-label">EcoScore</span>
+      </div>
+      <div class="score-info">
+        <h2>Grade {{ eco.grade }}</h2>
+        <p>{{ eco.message }}</p>
+        <p class="score-meta">
+          Recyclable: <strong>{{ eco.recyclable_count }}</strong> ·
+          Non-recyclable: <strong>{{ eco.non_recyclable_count }}</strong>
+        </p>
+      </div>
+    </div>
+
+    <section class="result-grid">
+      <div class="image-panel">
+        <h3>Annotated Image</h3>
+        <img src="{{ annotated_url }}" alt="annotated" class="result-img" />
+        <details>
+          <summary>View original</summary>
+          <img src="{{ image_url }}" alt="original" class="result-img" />
+        </details>
+      </div>
+
+      <div class="summary-panel">
+        <h3>Disposal Guidance</h3>
+        {% if summary %}
+          {% for label, data in summary.items() %}
+            <div class="material-card" data-material="{{ label }}">
+              <div class="mc-header">
+                <h4>{{ label }}</h4>
+                <span class="badge">×{{ data.count }}</span>
+              </div>
+              <p><strong>Bin:</strong> {{ data.bin }}</p>
+              <p><strong>Do:</strong> {{ data.instruction }}</p>
+              <p class="tip">💡 {{ data.tip }}</p>
+              <p class="diy">🎨 <strong>DIY Idea:</strong> {{ data.diy_idea }}</p>
+              <small>Avg confidence: {{ (data.avg_confidence * 100) | round(1) }}%</small>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="empty">No items detected. Try a clearer photo.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="actions">
+      <a href="/" class="btn-secondary">Scan Another</a>
+      <a href="/dashboard" class="btn-primary">View Dashboard</a>
+      <a href="/scan/{{ scan_id }}" class="btn-secondary">Permalink</a>
+    </div>
+  </div>
+   <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="footer-brand">♻️ EcoSort AI</div>
+        <p class="footer-desc">Smart waste segregation &amp; disposal guidance, powered by YOLOv8.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/">Scan Waste</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/history">History</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tech Stack</h5>
+        <ul>
+          <li>YOLOv8 &middot; TACO Dataset</li>
+          <li>Flask &middot; Python</li>
+          <li>Chart.js &middot; Tailwind CSS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Built as part of a college PBL project &middot; Aligned with UN SDG 11 &amp; 12</p>
+      <p class="footer-copy">&copy; 2026 EcoSort AI</p>
+    </div>
+  </footer>
+
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>

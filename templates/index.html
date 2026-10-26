@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoSort AI — Smart Waste Segregation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   <script>
+    (function () {
+      const saved = localStorage.getItem('ecosort-theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="nav-brand"><span>♻️ EcoSort AI</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">Scan</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/history">History</a>
+      <a href="/guide">Guide</a>
+    </div>
+   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+  <span class="theme-icon-light">🌙</span>
+  <span class="theme-icon-dark">☀️</span>
+</button>
+  </div>
+</nav>
+
+  <div class="container">
+    <header class="hero">
+      <h1>Smart Waste Segregation</h1>
+      <p class="tagline">Upload a photo — detect, classify, and get disposal guidance instantly.</p>
+      <p class="sdg">Aligned with UN SDG 11 & 12</p>
+    </header>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <span class="info-icon">📸</span>
+        <h4>Upload</h4>
+        <p>Take a photo of mixed waste items</p>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🤖</span>
+        <h4>Detect</h4>
+        <p>AI identifies each item and material</p>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">♻️</span>
+        <h4>Dispose</h4>
+        <p>Get bin color + disposal instructions</p>
+      </div>
+    </div>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data" class="upload-card">
+      <label for="image" class="dropzone" id="dropzone">
+        <input type="file" id="image" name="image" accept="image/*" required hidden>
+        <div class="dz-content">
+          <span class="dz-icon">📤</span>
+          <p><strong>Click to upload</strong> or drag &amp; drop</p>
+          <small>PNG, JPG, WEBP, HEIC — up to 8 MB</small>
+        </div>
+      </label>
+
+      <div class="preview-wrap" id="previewWrap" hidden>
+        <img id="preview" alt="preview" />
+        <div class="preview-actions">
+          <button type="button" class="btn-ghost" id="replaceBtn">🔄 Replace</button>
+          <button type="button" class="btn-ghost btn-ghost-danger" id="removeBtn">✕ Remove</button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" id="submitBtn" disabled>Analyze Waste</button>
+    </form>
+
+    <p class="hint">
+      💡 <strong>Tip:</strong> For best results, use a clear photo with good lighting. Multiple waste items in one image are supported.
+    </p>
+
+    <!-- ===================== INFO SECTION ===================== -->
+    <section class="info-section">
+      <h2>How EcoSort AI Works</h2>
+      <div class="info-grid">
+        <div class="info-block">
+          <h4>🎯 Multi-Item Detection</h4>
+          <p>Unlike single-item classifiers, EcoSort detects <strong>multiple waste items in a single photo</strong> using YOLOv8 trained on the TACO dataset.</p>
+        </div>
+        <div class="info-block">
+          <h4>🗑️ Smart Disposal Logic</h4>
+          <p>Each detected material maps to a real-world <strong>bin color + disposal instruction</strong> — bridging the gap between "what is it" and "what to do".</p>
+        </div>
+        <div class="info-block">
+          <h4>📊 EcoScore Metric</h4>
+          <p>A unique 0–100 score that quantifies how recyclable a scan batch is — enabling <strong>tracking, gamification, and insights</strong> over time.</p>
+        </div>
+        <div class="info-block">
+          <h4>🌍 SDG Alignment</h4>
+          <p>Directly supports <strong>UN SDG 11 (Sustainable Cities)</strong> and <strong>SDG 12 (Responsible Consumption)</strong> through better waste segregation at the source.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <div class="footer-brand">♻️ EcoSort AI</div>
+        <p class="footer-desc">Smart waste segregation &amp; disposal guidance, powered by YOLOv8.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/">Scan Waste</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/history">History</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tech Stack</h5>
+        <ul>
+          <li>YOLOv8 &middot; TACO Dataset</li>
+          <li>Flask &middot; Python</li>
+          <li>Chart.js &middot; Tailwind CSS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Built as part of a college PBL project &middot; Aligned with UN SDG 11 &amp; 12</p>
+      <p class="footer-copy">&copy; 2026 EcoSort AI</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>
