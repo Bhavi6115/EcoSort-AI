@@ -28,19 +28,15 @@ EcoSort AI is a software-only, AI-powered web application designed to bridge the
    cd EcoSort-AI
 
    Create and activate a virtual environment:
+    python -m venv venv
 
-2. bash
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-Install dependencies:
+   # On Windows:
+   .\venv\Scripts\activate
+   # On Mac/Linux:
+   source venv/bin/activate
 
-3. bash
-pip install -r requirements.txt
-Run the Flask App:
+    Install dependencies: pip install -r requirements.txt
 
-4. bash
-python app.py
-Open http://127.0.0.1:5000 in your browser.
+   Run the Flask App: python app.py
+   Open http://127.0.0.1:5000 in your browser.
+
